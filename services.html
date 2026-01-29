@@ -9,65 +9,141 @@
 <body>
   <header>
     <nav>
-      <div class="logo">Tadio's Towing</div>
+      <div class="logo js-link">Tadio's Towing</div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+        <a class="js-link" href="index.html">Home</a>
+        <a class="js-link" href="services.html">Services</a>
+        <a class="js-link" href="contact.html">Contact</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <h1>Our Services</h1>
+      <h1 class="js-split">Our Services</h1>
       <p>
-        We provide towing and roadside assistance in Honolulu with a focus on fast response,
-        fair pricing, and reliable help. From flat tires and lockouts to dead batteries and
-        major breakdowns, we support you with a calm, professional process.
+        Towing and roadside assistance in Honolulu with fast response and fair pricing. Support for flat tires, lockouts, dead batteries, and major breakdowns.
       </p>
+      <a class="btn js-link" href="contact.html">Get Help Now</a>
     </section>
 
     <section class="container">
-      <h2>What We Offer</h2>
+      <h2 class="js-split">What We Offer</h2>
       <div class="services-grid">
         <div class="service-card">
-          <h3>Towing</h3>
+          <h3 class="js-split">Towing</h3>
           <p>
-            Our towing service supports vehicles that stop working unexpectedly, including
-            disabled vehicles, accident recovery, and transport to your preferred location.
-            We work quickly and keep you informed so you know what is happening at every step.
+            Transport for disabled vehicles and accident recovery. Clear updates and careful handling from pickup to drop off.
           </p>
         </div>
         <div class="service-card">
-          <h3>Roadside Assistance</h3>
+          <h3 class="js-split">Roadside Assistance</h3>
           <p>
-            Reliable roadside help for common issues such as flat tires, dead batteries, and
-            minor problems that prevent you from driving safely. We focus on practical solutions
-            and quick turnaround so you spend less time waiting.
+            Jump starts, tire changes, and help when a small problem stops your day. Fast arrival and practical action.
           </p>
         </div>
         <div class="service-card">
-          <h3>Lockouts</h3>
+          <h3 class="js-split">Lockouts</h3>
           <p>
-            Locked your keys in the car. We provide fast lockout support to help you regain access.
-            Our goal is a smooth experience with minimal disruption, backed by punctual service.
+            Locked keys inside. Quick response so you regain access and get moving again.
           </p>
         </div>
       </div>
     </section>
 
     <section class="container" style="text-align:center;">
-      <h2>Ready to Get Started?</h2>
+      <h2 class="js-split">Ready to Get Started?</h2>
       <p style="max-width:800px;margin:0 auto 30px;color:#555;">
-        Contact us today to learn more about how our services can help you get back on the road.
+        Call for towing or roadside help in Honolulu. Open 24 hours.
       </p>
-      <a class="btn" href="contact.html">Contact Us</a>
+      <a class="btn js-link" href="contact.html">Contact Us</a>
     </section>
   </main>
 
   <footer>
-    © 2024 Tadio's Towing. All rights reserved.
+    <div>© <span id="year"></span> Tadio's Towing. All rights reserved.</div>
+    <div class="footer-links">
+      <a class="js-link" href="index.html">Home</a>
+      <a class="js-link" href="services.html">Services</a>
+      <a class="js-link" href="contact.html">Contact</a>
+    </div>
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    (function () {
+      const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) return;
+      if (!window.gsap || !window.ScrollTrigger) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      function splitText(el) {
+        if (!el) return;
+        if (el.dataset.splitDone === "1") return;
+
+        const text = el.textContent || "";
+        el.textContent = "";
+
+        const frag = document.createDocumentFragment();
+        for (let i = 0; i < text.length; i++) {
+          const ch = text[i];
+          const span = document.createElement("span");
+          span.className = "js-char";
+          span.textContent = ch === " " ? "\u00A0" : ch;
+          frag.appendChild(span);
+        }
+        el.appendChild(frag);
+        el.dataset.splitDone = "1";
+      }
+
+      function animateSplit(el) {
+        splitText(el);
+        const chars = el.querySelectorAll(".js-char");
+        if (!chars.length) return;
+
+        gsap.fromTo(
+          chars,
+          { y: -90, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: "bounce.out",
+            duration: 1.1,
+            stagger: 0.018,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              end: "top 55%",
+              toggleActions: "play reverse play reverse"
+            }
+          }
+        );
+      }
+
+      document.querySelectorAll(".js-split").forEach(animateSplit);
+
+      gsap.utils.toArray(".js-link").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { y: 10, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 92%",
+              toggleActions: "play reverse play reverse"
+            }
+          }
+        );
+      });
+    })();
+  </script>
 </body>
 </html>
