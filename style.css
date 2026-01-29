@@ -4,17 +4,29 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #555555;
+  --border: #dddddd;
+  --panel: #f8f8f8;
+
+  --yellow: #f4c400;
+  --yellow-2: #ffd84a;
+  --black: #111111;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background: #fff;
+  color: var(--text);
+  background: var(--bg);
 }
 
 header {
-  background: #f8f8f8;
+  background: var(--panel);
   padding: 1rem 0;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--border);
 }
 
 nav {
@@ -31,7 +43,8 @@ nav {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: var(--black);
+  letter-spacing: 0.2px;
 }
 
 .nav-links {
@@ -41,14 +54,32 @@ nav {
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
-  color: #333;
+  color: var(--black);
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(244,196,0,0.95), transparent);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease;
 }
 
 .nav-links a:hover {
-  color: #666;
+  color: #000000;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
 
 .hero {
@@ -59,29 +90,31 @@ nav {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #222;
+  color: var(--black);
 }
 
 .hero p {
   font-size: 1.2rem;
   margin: 0 auto 30px;
-  color: #555;
+  color: var(--muted);
   max-width: 800px;
 }
 
 .btn {
   display: inline-block;
   padding: 15px 40px;
-  background: #333;
-  color: #fff;
+  background: var(--black);
+  color: var(--yellow);
   text-decoration: none;
   border-radius: 5px;
   font-size: 1.1rem;
-  transition: background 0.3s ease;
+  border: 2px solid var(--yellow);
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-  background: #555;
+  background: var(--yellow);
+  color: var(--black);
 }
 
 .container {
@@ -94,7 +127,7 @@ nav {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 20px;
-  color: #222;
+  color: var(--black);
 }
 
 .services-grid {
@@ -106,19 +139,19 @@ nav {
 
 .service-card {
   padding: 30px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 5px;
-  background: #fff;
+  background: #ffffff;
 }
 
 .service-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #222;
+  color: var(--black);
 }
 
 .service-card p {
-  color: #555;
+  color: var(--muted);
   line-height: 1.8;
 }
 
@@ -130,31 +163,79 @@ nav {
 .contact-item {
   padding: 20px;
   margin-bottom: 15px;
-  background: #f8f8f8;
-  border-left: 4px solid #333;
+  background: var(--panel);
+  border-left: 6px solid var(--yellow);
 }
 
 .contact-item strong {
   display: block;
   margin-bottom: 5px;
-  color: #222;
+  color: var(--black);
 }
 
 .contact-item a {
-  color: #333;
+  color: var(--black);
   text-decoration: none;
+  border-bottom: 2px solid rgba(244,196,0,0.55);
 }
 
 .contact-item a:hover {
-  text-decoration: underline;
+  border-bottom-color: rgba(244,196,0,1);
 }
 
 footer {
-  background: #f8f8f8;
+  background: var(--panel);
   text-align: center;
   padding: 20px;
   margin-top: 60px;
-  border-top: 2px solid #ddd;
+  border-top: 2px solid var(--border);
+  color: var(--muted);
+}
+
+.footer-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(244,196,0,0.95), transparent);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: #000000;
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.js-split {
+  display: inline-block;
+}
+
+.js-split .js-char {
+  display: inline-block;
+  will-change: transform, opacity;
 }
 
 @media (max-width: 768px) {
