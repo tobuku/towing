@@ -90,7 +90,7 @@
     );
   });
 
-  /* ---- Pointer glow + magnetic cursor ---- */
+  /* ---- Pointer glow + magnetic STICK cursor ---- */
   function setPointerGlow(el, e) {
     var r = el.getBoundingClientRect();
     el.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
@@ -99,33 +99,48 @@
 
   if (hoverOk) {
     document.querySelectorAll(".kls-magnet, .btn").forEach(function (el) {
+      var stuck = false;
+      var stickZone = 80; /* px radius around element that triggers stick */
+
+      function getCenter(rect) {
+        return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      }
+
+      /* Stick: element follows cursor tightly within zone */
       el.addEventListener("mousemove", function (e) {
         setPointerGlow(el, e);
         var r = el.getBoundingClientRect();
-        var x = e.clientX - r.left - r.width / 2;
-        var y = e.clientY - r.top - r.height / 2;
+        var cx = r.left + r.width / 2;
+        var cy = r.top + r.height / 2;
+        var dx = e.clientX - cx;
+        var dy = e.clientY - cy;
+        stuck = true;
         gsap.to(el, {
-          x: x * 0.45,
-          y: y * 0.45,
-          scale: 1.08,
-          duration: 0.2,
-          ease: "power2.out",
+          x: dx * 0.65,
+          y: dy * 0.65,
+          scale: 1.1,
+          duration: 0.25,
+          ease: "power3.out",
         });
       });
+
+      /* Release: snap back with dramatic elastic */
       el.addEventListener("mouseleave", function () {
+        stuck = false;
         gsap.to(el, {
           x: 0,
           y: 0,
           scale: 1,
-          duration: 0.7,
-          ease: "elastic.out(1, 0.25)",
+          duration: 1.0,
+          ease: "elastic.out(1.2, 0.3)",
         });
       });
+
       el.addEventListener("pointerdown", function () {
-        gsap.to(el, { scale: 0.92, duration: 0.1, ease: "power2.out" });
+        gsap.to(el, { scale: 0.88, duration: 0.1, ease: "power2.out" });
       });
       el.addEventListener("pointerup", function () {
-        gsap.to(el, { scale: 1.08, duration: 0.35, ease: "elastic.out(1, 0.4)" });
+        gsap.to(el, { scale: 1.1, duration: 0.4, ease: "elastic.out(1.2, 0.35)" });
       });
     });
   }
