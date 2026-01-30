@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nRedesign site with premium GSAP animations and add new pages\n\nUpgrade design to yellow/black accent system on white background.\nExtract shared GSAP animations \\(split-letter bounce, magnetic cursor,\nscroll fade, image hover\\) into gsap-init.js. Expand copy with accurate\nbusiness details. Add about, service-area, faq, reviews, privacy, and\nterms pages with consistent nav and footer across all 10 pages.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)"
+    ]
+  }
+}
