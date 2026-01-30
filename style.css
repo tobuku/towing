@@ -130,13 +130,8 @@ footer a:hover{color:var(--accent)}
 .cta-banner .btn{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700}
 .cta-banner .btn:hover{background:var(--accent-2)}
 
-/* === Header red highlight === */
-h1,h2,.section-title,.cta-banner h2{color:var(--ink);background:linear-gradient(180deg,transparent 55%,rgba(220,38,38,0.18) 55%);display:inline;padding:0 4px}
-.cta-banner h2{background:linear-gradient(180deg,transparent 55%,rgba(220,38,38,0.3) 55%);color:#fff}
-
 /* === Split text chars === */
-.kls-split{display:inline-block;background:linear-gradient(180deg,transparent 55%,rgba(220,38,38,0.18) 55%);padding:0 4px}
-.cta-banner .kls-split{background:linear-gradient(180deg,transparent 55%,rgba(220,38,38,0.3) 55%)}
+.kls-split{display:inline-block}
 .kls-split .kls-char{display:inline-block;will-change:transform,opacity,filter;transform:translate3d(0,0,0)}
 
 /* === Responsive === */

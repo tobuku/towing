@@ -34,39 +34,46 @@
     el.dataset.split = "1";
   }
 
-  /* ---- Drop-bounce headings ---- */
-  function dropBounceHeading(el, strength) {
+  /* ---- Staggered drop-in headings (yoyo repeat on scroll) ---- */
+  var dropDuration = 0.35;
+
+  function dropStaggerHeading(el) {
     splitLetters(el);
     var chars = el.querySelectorAll(".kls-char");
     if (!chars.length) return;
+
+    /* Build a timeline that drops letters in, holds, then drops them back out */
     function play() {
+      gsap.killTweensOf(chars);
       gsap.fromTo(
         chars,
-        { y: -120 * strength, opacity: 0, scale: 0.3, rotation: -15, filter: "blur(14px)" },
+        { y: 60, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
-          rotation: 0,
-          filter: "blur(0px)",
-          duration: 1.4,
-          ease: "elastic.out(1, 0.4)",
-          stagger: 0.035,
+          duration: dropDuration,
+          repeat: 1,
+          yoyo: true,
+          repeatDelay: 1.5,
+          stagger: dropDuration / 8,
+          ease: "power2.out",
         }
       );
     }
+
     ScrollTrigger.create({
       trigger: el,
-      start: "top 86%",
+      start: "top 88%",
       onEnter: play,
       onEnterBack: play,
     });
+
+    /* Also set initial visible state so text isn't invisible before scroll */
+    gsap.set(chars, { y: 0, opacity: 1 });
   }
 
   document.querySelectorAll(".kls-drop").forEach(function (el) {
-    var tag = (el.tagName || "").toLowerCase();
-    var strength = tag === "h1" ? 1.6 : tag === "h2" ? 1.3 : 1.1;
-    dropBounceHeading(el, strength);
+    dropStaggerHeading(el);
   });
 
   /* ---- Fade-in on scroll ---- */
