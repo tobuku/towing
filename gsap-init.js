@@ -42,14 +42,16 @@
     function play() {
       gsap.fromTo(
         chars,
-        { y: -60 * strength, opacity: 0, filter: "blur(10px)" },
+        { y: -120 * strength, opacity: 0, scale: 0.3, rotation: -15, filter: "blur(14px)" },
         {
           y: 0,
           opacity: 1,
+          scale: 1,
+          rotation: 0,
           filter: "blur(0px)",
-          duration: 1.15,
-          ease: "bounce.out",
-          stagger: 0.018,
+          duration: 1.4,
+          ease: "elastic.out(1, 0.4)",
+          stagger: 0.035,
         }
       );
     }
@@ -63,7 +65,7 @@
 
   document.querySelectorAll(".kls-drop").forEach(function (el) {
     var tag = (el.tagName || "").toLowerCase();
-    var strength = tag === "h1" ? 1.25 : tag === "h2" ? 1.05 : 0.9;
+    var strength = tag === "h1" ? 1.6 : tag === "h2" ? 1.3 : 1.1;
     dropBounceHeading(el, strength);
   });
 
@@ -71,12 +73,13 @@
   gsap.utils.toArray(".kls-fade").forEach(function (el) {
     gsap.fromTo(
       el,
-      { opacity: 0.15, y: 30 },
+      { opacity: 0, y: 80, scale: 0.92 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        ease: "power2.out",
+        scale: 1,
+        duration: 0.9,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: el,
           start: "top 88%",
@@ -102,9 +105,10 @@
         var x = e.clientX - r.left - r.width / 2;
         var y = e.clientY - r.top - r.height / 2;
         gsap.to(el, {
-          x: x * 0.22,
-          y: y * 0.22,
-          duration: 0.18,
+          x: x * 0.45,
+          y: y * 0.45,
+          scale: 1.08,
+          duration: 0.2,
           ease: "power2.out",
         });
       });
@@ -112,15 +116,16 @@
         gsap.to(el, {
           x: 0,
           y: 0,
-          duration: 0.55,
-          ease: "elastic.out(1, 0.35)",
+          scale: 1,
+          duration: 0.7,
+          ease: "elastic.out(1, 0.25)",
         });
       });
       el.addEventListener("pointerdown", function () {
-        gsap.to(el, { scale: 0.985, duration: 0.12, ease: "power2.out" });
+        gsap.to(el, { scale: 0.92, duration: 0.1, ease: "power2.out" });
       });
       el.addEventListener("pointerup", function () {
-        gsap.to(el, { scale: 1, duration: 0.22, ease: "elastic.out(1, 0.55)" });
+        gsap.to(el, { scale: 1.08, duration: 0.35, ease: "elastic.out(1, 0.4)" });
       });
     });
   }
@@ -129,15 +134,17 @@
   document.querySelectorAll(".media img").forEach(function (img) {
     img.addEventListener("mouseenter", function () {
       gsap.to(img, {
-        filter: "brightness(1.08)",
-        duration: 0.3,
+        filter: "brightness(1.15) saturate(1.1)",
+        scale: 1.03,
+        duration: 0.4,
         ease: "power1.out",
       });
     });
     img.addEventListener("mouseleave", function () {
       gsap.to(img, {
-        filter: "brightness(1)",
-        duration: 0.3,
+        filter: "brightness(1) saturate(1)",
+        scale: 1,
+        duration: 0.4,
         ease: "power1.out",
       });
     });

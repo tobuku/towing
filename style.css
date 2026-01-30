@@ -40,15 +40,16 @@ header{background:#fff;padding:0;border-bottom:1px solid var(--border);position:
 
 /* === Buttons === */
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 36px;background:var(--ink);color:#fff;text-decoration:none;border-radius:8px;font-size:1rem;font-weight:600;transition:background .25s,box-shadow .25s;border:1px solid transparent;position:relative;overflow:hidden;transform:translate3d(0,0,0);will-change:transform;cursor:pointer}
-.btn:hover{background:#1a1a1a;box-shadow:0 0 20px rgba(246,198,0,0.18)}
+.btn:hover{background:#1a1a1a;box-shadow:0 0 30px rgba(246,198,0,0.35)}
 .btn:active{background:#0f0f0f}
-.btn.primary{background:var(--ink);border-color:var(--ink)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
 .btn.primary:hover{background:#1a1a1a}
+.nav-links .btn.primary{color:#fff}
 .btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--border)}
 .btn.secondary:hover{border-color:#bbb;box-shadow:0 0 16px rgba(246,198,0,0.12)}
 
 /* Pointer-follow glow on buttons and nav */
-.btn::before,.nav-links a::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(246,198,0,0.22),transparent 55%);opacity:0;transition:opacity 160ms ease;pointer-events:none}
+.btn::before,.nav-links a::before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(246,198,0,0.45),transparent 55%);opacity:0;transition:opacity 160ms ease;pointer-events:none}
 .btn:hover::before,.nav-links a:hover::before{opacity:1}
 
 /* === Hero === */
