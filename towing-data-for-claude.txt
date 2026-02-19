@@ -1,4 +1,32 @@
 
+
+
+Create a prompt for Claude code 
+Explain that we will be working in a local folder called \towing
+
+the project path is   C:\Users\HDNG_HelpDesk\Documents\GitHub\towing
+
+The goal is the make the site as professional looking as possible with GSAP animated letters upon scroll and highlights over links and images.
+
+Further instruct Claude to create complete the following Suggested images and folders, and explain that I will upload the images and name the as instructed. 
+
+Put these in your repo:
+assets/images/hero-towtruck.jpg
+Hero image. Tow truck on a Honolulu street, daytime.
+assets/images/roadside-night.jpg
+Roadside scene at night with safety lights.
+assets/images/services-flatbed.jpg
+Flatbed loading shot.
+assets/images/contact-dispatch.jpg
+Phone dispatch, driver with radio, or tow truck staged.
+Supporting facts used
+24 hour availability and service area references from public listings. 
+
+Lastly advised Clause that a file named towing-data-for-claude.txt has been added to the \towing folder for additional context and reference so that claude can add additional pages and context to the website which the url is towtruck.blog and is being hosted on GitHub Pages.
+
+
+
+======================
 tadios towing
 
 
