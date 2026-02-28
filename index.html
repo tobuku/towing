@@ -12,25 +12,38 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tadio's Towing | 24-Hour Towing in Honolulu, HI</title>
-  <meta name="description" content="Tadio's Towing provides 24-hour towing and roadside assistance in Honolulu and nearby areas. Locally owned for over 10 years. Call (808) 389-9888." />
+  <title>Find a Tow Truck Near You | TowTruck.blog</title>
+  <meta name="description" content="Find trusted tow truck companies and roadside assistance across the United States. Browse by state and city, compare ratings, and call directly." />
+  <link rel="canonical" href="https://towtruck.blog/" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="directory.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TowTruck.blog",
+    "url": "https://towtruck.blog/",
+    "description": "Nationwide tow truck directory. Find towing companies and roadside assistance near you.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://towtruck.blog/states/{search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <header>
     <div class="navbar">
-      <div class="logo">Tadio's <span>Towing</span></div>
+      <div class="logo"><a href="/" style="text-decoration:none;color:inherit">TowTruck<span>.blog</span></a></div>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="nav-links">
-        <a class="kls-magnet" href="index.html">Home</a>
-        <a class="kls-magnet" href="services.html">Services</a>
+        <a class="kls-magnet" href="/">Home</a>
+        <a class="kls-magnet" href="/states/">Browse States</a>
+        <a class="kls-magnet" href="contact.html">List Your Business</a>
         <a class="kls-magnet" href="about.html">About</a>
-        <a class="kls-magnet" href="service-area.html">Service Area</a>
         <a class="kls-magnet" href="faq.html">FAQ</a>
-        <a class="kls-magnet" href="reviews.html">Reviews</a>
-        <a class="kls-magnet" href="contact.html">Contact</a>
-        <a class="kls-magnet btn primary" href="tel:18083899888">Call (808) 389-9888</a>
       </nav>
     </div>
   </header>
@@ -38,150 +51,214 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1 class="kls-drop">Towing and Roadside Help in Honolulu</h1>
-        <p>
-          Vehicle trouble does not wait for business hours. Tadio's Towing responds fast across Honolulu and nearby areas, 24 hours a day. Locally owned and operated for over 10 years, licensed and bonded, with budget-friendly pricing and punctual service.
-        </p>
-        <div class="hero-buttons">
-          <a class="btn primary kls-magnet" href="tel:18083899888">Call Now</a>
-          <a class="btn secondary kls-magnet" href="services.html">View Services</a>
-        </div>
-        <div style="margin-top:32px;" class="media kls-fade">
-          <img src="assets/images/hero-towtruck.jpg" alt="Tadio's tow truck on a Honolulu street during the day" loading="eager" />
+        <h1 class="kls-drop">Find a Tow Truck Near You</h1>
+        <p>Search our nationwide directory of towing companies and roadside assistance providers. Compare ratings, check hours, and call directly.</p>
+
+        <div class="search-box kls-fade">
+          <span class="search-icon">&#x1F50D;</span>
+          <input type="text" id="directory-search" placeholder="Search by city or state..." autocomplete="off" />
+          <div class="search-results" id="search-results"></div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2 class="section-title kls-drop">What We Do</h2>
-        <p class="section-sub">From flat tires at midnight to long-distance hauling across the island, we handle the full range of towing and roadside needs.</p>
+        <h2 class="section-title kls-drop">Browse by State</h2>
+        <p class="section-sub">Select a state to find tow truck companies in your area.</p>
 
-        <div class="services-grid">
-          <div class="card kls-fade">
-            <span class="icon">&#x1F69A;</span>
-            <h3 class="kls-drop">Towing</h3>
-            <p>Light-duty towing, car towing, local and long-distance hauling. Flatbed and wheel-lift options for safe transport of any passenger vehicle.</p>
-          </div>
-          <div class="card kls-fade">
-            <span class="icon">&#x1F527;</span>
-            <h3 class="kls-drop">Roadside Assistance</h3>
-            <p>Flat tire changes, jump starts, battery service, and auto lockouts. Quick response to get you back on the road without a tow.</p>
-          </div>
-          <div class="card kls-fade">
-            <span class="icon">&#x1F6E0;</span>
-            <h3 class="kls-drop">Recovery and Specialty</h3>
-            <p>Winch-outs, accident recovery, special vehicle towing, and junk car removal. We handle the situations other companies turn down.</p>
-          </div>
+        <div class="states-grid">
+          <a class="state-card kls-fade" href="/states/hawaii/">Hawaii <span class="state-abbr">HI</span></a>
+          <a class="state-card kls-fade" href="/states/california/">California <span class="state-abbr">CA</span></a>
+          <a class="state-card kls-fade" href="/states/texas/">Texas <span class="state-abbr">TX</span></a>
+          <a class="state-card kls-fade" href="/states/florida/">Florida <span class="state-abbr">FL</span></a>
+          <a class="state-card kls-fade" href="/states/new-york/">New York <span class="state-abbr">NY</span></a>
+          <a class="state-card kls-fade" href="/states/illinois/">Illinois <span class="state-abbr">IL</span></a>
         </div>
 
-        <div style="text-align:center; margin-top:30px;">
-          <a class="btn primary kls-magnet" href="services.html">See Full Service List</a>
+        <div style="text-align:center;margin-top:28px;">
+          <a class="btn secondary kls-magnet" href="/states/">View All 50 States</a>
         </div>
       </div>
     </section>
 
     <section class="alt-bg">
       <div class="container">
-        <h2 class="section-title kls-drop">Why Honolulu Drivers Call Tadio's</h2>
-        <div class="trust-row">
-          <div class="trust-badge kls-fade">
-            <span class="icon">&#x1F553;</span>
-            <strong>24-Hour Service</strong>
-            <span>Day or night, every day</span>
+        <h2 class="section-title kls-drop">How It Works</h2>
+        <div class="services-grid">
+          <div class="card kls-fade">
+            <span class="icon">&#x1F50D;</span>
+            <h3 class="kls-drop">1. Browse</h3>
+            <p>Search by state and city to find towing companies near you. Every listing includes ratings, hours, and services offered.</p>
           </div>
-          <div class="trust-badge kls-fade">
-            <span class="icon">&#x2B50;</span>
-            <strong>5.0 on Yelp</strong>
-            <span>31 reviews</span>
+          <div class="card kls-fade">
+            <span class="icon">&#x2696;</span>
+            <h3 class="kls-drop">2. Compare</h3>
+            <p>Check reviews, service tags, and hours of operation side by side. Find the right company for your situation.</p>
           </div>
-          <div class="trust-badge kls-fade">
-            <span class="icon">&#x1F3E0;</span>
-            <strong>Locally Owned</strong>
-            <span>Over 10 years</span>
+          <div class="card kls-fade">
+            <span class="icon">&#x1F4DE;</span>
+            <h3 class="kls-drop">3. Call</h3>
+            <p>Tap to call directly from the listing. Every phone number is click-to-call ready on mobile devices.</p>
           </div>
-          <div class="trust-badge kls-fade">
-            <span class="icon">&#x1F6E1;</span>
-            <strong>Licensed &amp; Bonded</strong>
-            <span>Professional standards</span>
-          </div>
-        </div>
-
-        <div class="media kls-fade" style="margin-top:32px;">
-          <img src="assets/images/roadside-night.jpg" alt="Roadside assistance scene at night with safety lights" loading="lazy" />
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <h2 class="section-title kls-drop">How It Works</h2>
-        <div class="services-grid">
-          <div class="card kls-fade">
-            <h3 class="kls-drop">1. Call</h3>
-            <p>Reach us at (808) 389-9888. Share your location, the issue, and any hazards like tight parking or traffic.</p>
+        <h2 class="section-title kls-drop">Featured Listing</h2>
+        <div class="featured-highlight kls-fade">
+          <span class="badge-featured" style="position:static;display:inline-block;margin-bottom:12px;">Featured</span>
+          <h3><a href="/states/hawaii/honolulu/tadios-towing/" style="text-decoration:none;color:inherit;">Tadio's Towing</a></h3>
+          <div class="fh-meta">
+            <span class="listing-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 5.0 Yelp</span>
+            <span class="listing-reviews">31 reviews</span>
+            <span class="listing-hours">Open 24 Hours</span>
           </div>
-          <div class="card kls-fade">
-            <h3 class="kls-drop">2. Confirm Details</h3>
-            <p>We confirm your vehicle type, destination, and service before dispatching a driver.</p>
+          <p style="color:var(--muted);margin-bottom:14px;">Locally owned towing and roadside assistance in Honolulu, HI. Serving the island for over 10 years. Towing, jump starts, lockouts, winch-outs, junk car removal, and accident recovery.</p>
+          <div class="service-tags">
+            <span class="service-tag">Towing</span>
+            <span class="service-tag">Roadside Assistance</span>
+            <span class="service-tag">Junk Car Removal</span>
+            <span class="service-tag">Accident Recovery</span>
+            <span class="service-tag">24-Hour</span>
           </div>
-          <div class="card kls-fade">
-            <h3 class="kls-drop">3. Safe Pickup</h3>
-            <p>Our driver arrives, secures the vehicle, and gets you off the road as fast as conditions allow.</p>
+          <div class="listing-actions">
+            <a class="btn primary kls-magnet" href="tel:18083899888" onclick="gtag('event','click_to_call',{company:'Tadios Towing',city:'Honolulu'})">Call (808) 389-9888</a>
+            <a class="btn secondary kls-magnet" href="/states/hawaii/honolulu/tadios-towing/">View Listing</a>
           </div>
-        </div>
-        <div style="text-align:center; margin-top:30px;">
-          <a class="btn primary kls-magnet" href="contact.html">Get in Touch</a>
         </div>
       </div>
     </section>
 
     <section class="cta-banner">
-      <h2 class="kls-drop">Stranded? Call Now.</h2>
-      <p>Open 24 hours. Serving Honolulu and nearby areas.</p>
-      <a class="btn kls-magnet" href="tel:18083899888">(808) 389-9888</a>
+      <h2 class="kls-drop">Own a Towing Business?</h2>
+      <p>Get listed on TowTruck.blog for free. Reach customers searching for tow trucks in your city.</p>
+      <a class="btn kls-magnet" href="contact.html">List Your Business</a>
     </section>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>Tadio's Towing</h4>
-        <p style="font-size:.9rem;color:#999;">Locally owned towing and roadside assistance in Honolulu, HI. Open 24 hours.</p>
+        <h4>TowTruck.blog</h4>
+        <p style="font-size:.9rem;color:#999;">Nationwide tow truck directory. Find towing companies and roadside assistance near you.</p>
       </div>
       <div class="footer-col">
-        <h4>Pages</h4>
+        <h4>Directory</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="service-area.html">Service Area</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/states/">Browse States</a></li>
+          <li><a href="/states/hawaii/">Hawaii</a></li>
+          <li><a href="/states/california/">California</a></li>
+          <li><a href="/states/texas/">Texas</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
+        <h4>Company</h4>
         <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">List Your Business</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>Popular Cities</h4>
         <ul>
-          <li><a href="tel:18083899888">(808) 389-9888</a></li>
-          <li>Honolulu, HI</li>
-          <li>Open 24 Hours</li>
+          <li><a href="/states/hawaii/honolulu/">Honolulu, HI</a></li>
+          <li><a href="/states/texas/houston/">Houston, TX</a></li>
+          <li><a href="/states/california/los-angeles/">Los Angeles, CA</a></li>
+          <li><a href="/states/florida/miami/">Miami, FL</a></li>
+          <li><a href="/states/new-york/new-york-city/">New York City, NY</a></li>
         </ul>
       </div>
-      <div class="footer-bottom">&copy; <span id="year"></span> Tadio's Towing LLC. All rights reserved.</div>
+      <div class="footer-bottom">&copy; <span id="year"></span> TowTruck.blog. All rights reserved.</div>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="gsap-init.js"></script>
+  <script>
+  (function(){
+    var locations = [
+      {city:"Honolulu",state:"Hawaii",abbr:"HI",url:"/states/hawaii/honolulu/"},
+      {city:"Kailua",state:"Hawaii",abbr:"HI",url:"/states/hawaii/kailua/"},
+      {city:"Hilo",state:"Hawaii",abbr:"HI",url:"/states/hawaii/hilo/"},
+      {city:"Kapolei",state:"Hawaii",abbr:"HI",url:"/states/hawaii/kapolei/"},
+      {city:"Houston",state:"Texas",abbr:"TX",url:"/states/texas/houston/"},
+      {city:"Dallas",state:"Texas",abbr:"TX",url:"/states/texas/dallas/"},
+      {city:"Austin",state:"Texas",abbr:"TX",url:"/states/texas/austin/"},
+      {city:"San Antonio",state:"Texas",abbr:"TX",url:"/states/texas/san-antonio/"},
+      {city:"Fort Worth",state:"Texas",abbr:"TX",url:"/states/texas/fort-worth/"},
+      {city:"Los Angeles",state:"California",abbr:"CA",url:"/states/california/los-angeles/"},
+      {city:"San Francisco",state:"California",abbr:"CA",url:"/states/california/san-francisco/"},
+      {city:"San Diego",state:"California",abbr:"CA",url:"/states/california/san-diego/"},
+      {city:"San Jose",state:"California",abbr:"CA",url:"/states/california/san-jose/"},
+      {city:"Miami",state:"Florida",abbr:"FL",url:"/states/florida/miami/"},
+      {city:"Jacksonville",state:"Florida",abbr:"FL",url:"/states/florida/jacksonville/"},
+      {city:"New York City",state:"New York",abbr:"NY",url:"/states/new-york/new-york-city/"},
+      {city:"Chicago",state:"Illinois",abbr:"IL",url:"/states/illinois/chicago/"},
+      {city:"Phoenix",state:"Arizona",abbr:"AZ",url:"/states/arizona/phoenix/"},
+      {city:"Philadelphia",state:"Pennsylvania",abbr:"PA",url:"/states/pennsylvania/philadelphia/"},
+      {city:"Charlotte",state:"North Carolina",abbr:"NC",url:"/states/north-carolina/charlotte/"},
+      {city:"Columbus",state:"Ohio",abbr:"OH",url:"/states/ohio/columbus/"},
+      {city:"Indianapolis",state:"Indiana",abbr:"IN",url:"/states/indiana/indianapolis/"},
+      {city:"Seattle",state:"Washington",abbr:"WA",url:"/states/washington/seattle/"},
+      {city:"Denver",state:"Colorado",abbr:"CO",url:"/states/colorado/denver/"},
+      {city:"Nashville",state:"Tennessee",abbr:"TN",url:"/states/tennessee/nashville/"}
+    ];
+    var states = [
+      {name:"Alabama",abbr:"AL"},{name:"Alaska",abbr:"AK"},{name:"Arizona",abbr:"AZ"},{name:"Arkansas",abbr:"AR"},
+      {name:"California",abbr:"CA"},{name:"Colorado",abbr:"CO"},{name:"Connecticut",abbr:"CT"},{name:"Delaware",abbr:"DE"},
+      {name:"Florida",abbr:"FL"},{name:"Georgia",abbr:"GA"},{name:"Hawaii",abbr:"HI"},{name:"Idaho",abbr:"ID"},
+      {name:"Illinois",abbr:"IL"},{name:"Indiana",abbr:"IN"},{name:"Iowa",abbr:"IA"},{name:"Kansas",abbr:"KS"},
+      {name:"Kentucky",abbr:"KY"},{name:"Louisiana",abbr:"LA"},{name:"Maine",abbr:"ME"},{name:"Maryland",abbr:"MD"},
+      {name:"Massachusetts",abbr:"MA"},{name:"Michigan",abbr:"MI"},{name:"Minnesota",abbr:"MN"},{name:"Mississippi",abbr:"MS"},
+      {name:"Missouri",abbr:"MO"},{name:"Montana",abbr:"MT"},{name:"Nebraska",abbr:"NE"},{name:"Nevada",abbr:"NV"},
+      {name:"New Hampshire",abbr:"NH"},{name:"New Jersey",abbr:"NJ"},{name:"New Mexico",abbr:"NM"},{name:"New York",abbr:"NY"},
+      {name:"North Carolina",abbr:"NC"},{name:"North Dakota",abbr:"ND"},{name:"Ohio",abbr:"OH"},{name:"Oklahoma",abbr:"OK"},
+      {name:"Oregon",abbr:"OR"},{name:"Pennsylvania",abbr:"PA"},{name:"Rhode Island",abbr:"RI"},{name:"South Carolina",abbr:"SC"},
+      {name:"South Dakota",abbr:"SD"},{name:"Tennessee",abbr:"TN"},{name:"Texas",abbr:"TX"},{name:"Utah",abbr:"UT"},
+      {name:"Vermont",abbr:"VT"},{name:"Virginia",abbr:"VA"},{name:"Washington",abbr:"WA"},{name:"West Virginia",abbr:"WV"},
+      {name:"Wisconsin",abbr:"WI"},{name:"Wyoming",abbr:"WY"}
+    ];
+    var input=document.getElementById("directory-search");
+    var results=document.getElementById("search-results");
+    if(!input||!results) return;
+    input.addEventListener("input",function(){
+      var q=this.value.trim().toLowerCase();
+      if(q.length<2){results.innerHTML="";results.classList.remove("active");return}
+      var html="";
+      var count=0;
+      // search cities
+      for(var i=0;i<locations.length&&count<8;i++){
+        var l=locations[i];
+        if(l.city.toLowerCase().indexOf(q)>-1||l.state.toLowerCase().indexOf(q)>-1){
+          html+='<a href="'+l.url+'"><span class="result-city">'+l.city+'</span><span class="result-state">'+l.state+'</span></a>';
+          count++;
+        }
+      }
+      // search states
+      for(var j=0;j<states.length&&count<10;j++){
+        var s=states[j];
+        if(s.name.toLowerCase().indexOf(q)>-1||s.abbr.toLowerCase()===q){
+          var slug=s.name.toLowerCase().replace(/ /g,"-");
+          html+='<a href="/states/'+slug+'/"><span class="result-city">'+s.name+'</span><span class="result-state">State</span></a>';
+          count++;
+        }
+      }
+      if(!html) html='<div class="search-no-results">No results found. Try a different city or state.</div>';
+      results.innerHTML=html;
+      results.classList.add("active");
+    });
+    document.addEventListener("click",function(e){
+      if(!e.target.closest(".search-box")) results.classList.remove("active");
+    });
+  })();
+  </script>
 </body>
 </html>

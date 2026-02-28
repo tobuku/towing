@@ -3,125 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Tadio's Towing - Honolulu, HI</title>
-  <meta name="description" content="Contact Tadio's Towing in Honolulu, HI. Open 24 hours. Call (808) 389-9888 for towing and roadside assistance." />
+  <title>List Your Towing Business | TowTruck.blog</title>
+  <meta name="description" content="Get your towing company listed on TowTruck.blog for free. Reach drivers searching for tow trucks in your city." />
+  <link rel="canonical" href="https://towtruck.blog/contact.html" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="directory.css" />
 </head>
 <body>
 
   <header>
     <div class="navbar">
-      <div class="logo">Tadio's <span>Towing</span></div>
+      <div class="logo"><a href="/" style="text-decoration:none;color:inherit">TowTruck<span>.blog</span></a></div>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <nav class="nav-links">
-        <a class="kls-magnet" href="index.html">Home</a>
-        <a class="kls-magnet" href="services.html">Services</a>
+        <a class="kls-magnet" href="/">Home</a>
+        <a class="kls-magnet" href="/states/">Browse States</a>
+        <a class="kls-magnet" href="contact.html">List Your Business</a>
         <a class="kls-magnet" href="about.html">About</a>
-        <a class="kls-magnet" href="service-area.html">Service Area</a>
         <a class="kls-magnet" href="faq.html">FAQ</a>
-        <a class="kls-magnet" href="reviews.html">Reviews</a>
-        <a class="kls-magnet" href="contact.html">Contact</a>
-        <a class="kls-magnet btn primary" href="tel:18083899888">Call (808) 389-9888</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <h1 class="kls-drop" style="text-align:center;margin-bottom:10px;">Contact Us</h1>
-      <p class="section-sub">Open 24 hours in Honolulu and nearby areas. Call for towing, roadside assistance, or junk car removal.</p>
+      <h1 class="kls-drop" style="text-align:center;margin-bottom:10px;">List Your Towing Business</h1>
+      <p class="section-sub">Get your company in front of drivers searching for tow trucks in your city. Basic listings are free.</p>
 
-      <div class="media kls-fade" style="margin-bottom:36px;">
-        <img src="assets/images/contact-dispatch.jpg" alt="Tow truck dispatch and roadside coordination" loading="lazy" />
-      </div>
-
-      <div class="contact-info">
-        <div class="contact-item kls-fade">
-          <strong>Phone</strong>
-          <a class="kls-magnet" href="tel:18083899888">(808) 389-9888</a>
+      <div class="services-grid" style="margin-bottom:48px;">
+        <div class="card kls-fade">
+          <span class="icon">&#x2705;</span>
+          <h3 class="kls-drop">Free Listing</h3>
+          <p>Company name, address, phone, hours, and services displayed on your city page. Click-to-call enabled for mobile users.</p>
         </div>
-        <div class="contact-item kls-fade">
-          <strong>Business Name</strong>
-          <div>Tadio's Towing LLC</div>
+        <div class="card kls-fade">
+          <span class="icon">&#x2B50;</span>
+          <h3 class="kls-drop">Featured Listing</h3>
+          <p>Top placement on your city page, highlighted badge, and a dedicated listing page with full details and reviews.</p>
         </div>
-        <div class="contact-item kls-fade">
-          <strong>Location</strong>
-          <div>Honolulu, Hawaii 96816</div>
-        </div>
-        <div class="contact-item kls-fade">
-          <strong>Hours</strong>
-          <div>Open 24 hours, 7 days a week</div>
-        </div>
-        <div class="contact-item kls-fade">
-          <strong>Service Area</strong>
-          <div>Honolulu and nearby areas across Oahu</div>
+        <div class="card kls-fade">
+          <span class="icon">&#x1F4C8;</span>
+          <h3 class="kls-drop">Lead Generation</h3>
+          <p>Receive quote requests from drivers in your area. We forward leads directly to your business phone or email.</p>
         </div>
       </div>
 
-      <div style="text-align:center;margin-top:24px;">
-        <a class="btn primary kls-magnet" href="tel:18083899888">Call Dispatch Now</a>
+      <div class="quote-form kls-fade">
+        <h3>Submit Your Business</h3>
+        <form action="https://formspree.io/f/xwpkvgzj" method="POST">
+          <label for="business-name">Business Name</label>
+          <input type="text" id="business-name" name="business_name" required placeholder="e.g. Tadio's Towing" />
+
+          <label for="city-state">City &amp; State</label>
+          <input type="text" id="city-state" name="city_state" required placeholder="e.g. Honolulu, HI" />
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required placeholder="e.g. (808) 389-9888" />
+
+          <label for="website">Website (optional)</label>
+          <input type="url" id="website" name="website" placeholder="https://yoursite.com" />
+
+          <label for="services">Services Offered</label>
+          <textarea id="services" name="services" placeholder="e.g. Towing, roadside assistance, junk car removal, accident recovery..."></textarea>
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="you@company.com" />
+
+          <label for="listing-type">Listing Type</label>
+          <select id="listing-type" name="listing_type">
+            <option value="free">Free Listing</option>
+            <option value="featured">Featured Listing (inquire for pricing)</option>
+          </select>
+
+          <button type="submit" class="btn primary kls-magnet">Submit Listing</button>
+        </form>
       </div>
 
-      <div style="margin-top:48px;">
-        <h2 class="section-title kls-drop">When You Call</h2>
-        <div class="services-grid">
-          <div class="card kls-fade">
-            <h3>Share Your Location</h3>
-            <p>Tell us the street, landmark, or cross-streets. Mention if you are on a highway shoulder, in a parking lot, or in a tight residential area.</p>
-          </div>
-          <div class="card kls-fade">
-            <h3>Describe the Issue</h3>
-            <p>Flat tire, dead battery, accident, or need a full tow? The more detail you share, the faster we can match the right equipment.</p>
-          </div>
-          <div class="card kls-fade">
-            <h3>Confirm the Destination</h3>
-            <p>Let us know where the vehicle needs to go: your home, a repair shop, or a dealer. We confirm pricing before dispatch.</p>
-          </div>
-        </div>
+      <div class="prose" style="margin-top:48px;">
+        <h2 class="kls-drop">Questions?</h2>
+        <p>Check our <a href="faq.html">FAQ page</a> for answers to common questions about listings. For anything else, submit the form above and we will get back to you.</p>
       </div>
     </div>
 
     <section class="cta-banner">
-      <h2 class="kls-drop">Available Around the Clock</h2>
-      <p>Roadside problems do not follow business hours. Neither do we.</p>
-      <a class="btn kls-magnet" href="tel:18083899888">(808) 389-9888</a>
+      <h2 class="kls-drop">Reach More Customers</h2>
+      <p>Thousands of drivers search for tow trucks online every day. Make sure they find you.</p>
+      <a class="btn kls-magnet" href="#" onclick="document.getElementById('business-name').focus();return false;">Get Listed Now</a>
     </section>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>Tadio's Towing</h4>
-        <p style="font-size:.9rem;color:#999;">Locally owned towing and roadside assistance in Honolulu, HI. Open 24 hours.</p>
+        <h4>TowTruck.blog</h4>
+        <p style="font-size:.9rem;color:#999;">Nationwide tow truck directory. Find towing companies and roadside assistance near you.</p>
       </div>
       <div class="footer-col">
-        <h4>Pages</h4>
+        <h4>Directory</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="service-area.html">Service Area</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/states/">Browse States</a></li>
+          <li><a href="/states/hawaii/">Hawaii</a></li>
+          <li><a href="/states/california/">California</a></li>
+          <li><a href="/states/texas/">Texas</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Resources</h4>
+        <h4>Company</h4>
         <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">List Your Business</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h4>Popular Cities</h4>
         <ul>
-          <li><a href="tel:18083899888">(808) 389-9888</a></li>
-          <li>Honolulu, HI</li>
-          <li>Open 24 Hours</li>
+          <li><a href="/states/hawaii/honolulu/">Honolulu, HI</a></li>
+          <li><a href="/states/texas/houston/">Houston, TX</a></li>
+          <li><a href="/states/california/los-angeles/">Los Angeles, CA</a></li>
+          <li><a href="/states/florida/miami/">Miami, FL</a></li>
+          <li><a href="/states/new-york/new-york-city/">New York City, NY</a></li>
         </ul>
       </div>
-      <div class="footer-bottom">&copy; <span id="year"></span> Tadio's Towing LLC. All rights reserved.</div>
+      <div class="footer-bottom">&copy; <span id="year"></span> TowTruck.blog. All rights reserved.</div>
     </div>
   </footer>
 
