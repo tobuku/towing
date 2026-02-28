@@ -500,7 +500,7 @@ function generateCityPage(stateData, cityData) {
     '      <!-- Request a Quote -->\n' +
     '      <div class="quote-form kls-fade" style="margin-top:48px;">\n' +
     '        <h3>Request a Towing Quote in ' + escapeHTML(cityData.name) + '</h3>\n' +
-    '        <form action="https://formspree.io/f/xwpkvgzj" method="POST">\n' +
+    '        <form action="https://formspree.io/f/xpqjneyj" method="POST">\n' +
     '          <input type="hidden" name="city" value="' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + '" />\n' +
     '          <label for="q-name">Your Name</label>\n' +
     '          <input type="text" id="q-name" name="name" required placeholder="Full name" />\n' +
