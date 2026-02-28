@@ -14,6 +14,8 @@ var BASE_DIR = path.join(__dirname, "states");
 var CSV_FILE = path.join(__dirname, "towing-data.csv");
 var SITEMAP_FILE = path.join(__dirname, "sitemap.xml");
 var AFFILIATE_TAG = "dwelldoc-20";
+var GA4_ID = "G-0G9EYS155G";
+var HOMEPAGE_FILE = path.join(__dirname, "index.html");
 
 var STATE_NAMES = {
   "AL":"Alabama","AK":"Alaska","AZ":"Arizona","AR":"Arkansas","CA":"California",
@@ -235,6 +237,17 @@ function groupByState(businesses) {
 
 // ── HTML Templates ───────────────────────────────────────────────────────────
 
+function ga4Snippet() {
+  return '  <!-- Google tag (gtag.js) -->\n' +
+    '  <script async src="https://www.googletagmanager.com/gtag/js?id=' + GA4_ID + '"></script>\n' +
+    '  <script>\n' +
+    '    window.dataLayer = window.dataLayer || [];\n' +
+    '    function gtag(){dataLayer.push(arguments);}\n' +
+    '    gtag(\'js\', new Date());\n' +
+    '    gtag(\'config\', \'' + GA4_ID + '\');\n' +
+    '  </script>\n';
+}
+
 function headerHTML(cssPrefix) {
   return '  <header>\n' +
     '    <div class="navbar">\n' +
@@ -294,7 +307,7 @@ function footerHTML(stateLinks) {
     '          <li><a href="/states/texas/houston/">Houston, TX</a></li>\n' +
     '          <li><a href="/states/california/los-angeles/">Los Angeles, CA</a></li>\n' +
     '          <li><a href="/states/florida/miami/">Miami, FL</a></li>\n' +
-    '          <li><a href="/states/new-york/new-york-city/">New York City, NY</a></li>\n' +
+    '          <li><a href="/states/new-york/new-york/">New York, NY</a></li>\n' +
     '        </ul>\n' +
     '      </div>\n' +
     '      <div class="footer-bottom">&copy; <span id="year"></span> TowTruck.blog. All rights reserved.</div>\n' +
@@ -351,6 +364,7 @@ function generateStatePage(stateData) {
   for (var k in stateData.cities) totalBiz += stateData.cities[k].businesses.length;
 
   var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
+    ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>Tow Truck Companies in ' + escapeHTML(stateData.name) + ' | TowTruck.blog</title>\n' +
@@ -442,6 +456,7 @@ function generateCityPage(stateData, cityData) {
   }
 
   var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
+    ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>Tow Truck Companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + ' | TowTruck.blog</title>\n' +
@@ -560,6 +575,7 @@ function generateListingPage(stateData, cityData, biz) {
     '  }\n';
 
   var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
+    ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>' + escapeHTML(biz.name) + ' - ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + ' | TowTruck.blog</title>\n' +
@@ -704,7 +720,68 @@ function build() {
   var sitemapXML = generateSitemap(states);
   fs.writeFileSync(SITEMAP_FILE, sitemapXML);
 
+  // Update homepage search data
+  updateHomepageSearch(states);
+
   console.log("\nDone! Created " + pagesCreated + " pages + sitemap.");
+}
+
+// ── Homepage Search Data Injector ────────────────────────────────────────────
+
+function updateHomepageSearch(states) {
+  if (!fs.existsSync(HOMEPAGE_FILE)) {
+    console.log("Warning: index.html not found, skipping search data update.");
+    return;
+  }
+
+  var locations = [];
+  var stateKeys = Object.keys(states).sort();
+  for (var s = 0; s < stateKeys.length; s++) {
+    var state = states[stateKeys[s]];
+    var cityKeys = Object.keys(state.cities).sort();
+    for (var c = 0; c < cityKeys.length; c++) {
+      var city = state.cities[cityKeys[c]];
+      locations.push({
+        city: city.name,
+        state: state.name,
+        abbr: state.abbr,
+        url: "/states/" + state.slug + "/" + city.slug + "/",
+        count: city.businesses.length
+      });
+    }
+  }
+
+  // Sort by business count descending so popular cities appear first
+  locations.sort(function(a, b) { return b.count - a.count; });
+
+  var locJS = "[\n";
+  for (var i = 0; i < locations.length; i++) {
+    var l = locations[i];
+    locJS += '      {city:"' + l.city.replace(/"/g, '\\"') + '",state:"' + l.state + '",abbr:"' + l.abbr + '",url:"' + l.url + '"}';
+    if (i < locations.length - 1) locJS += ",";
+    locJS += "\n";
+  }
+  locJS += "    ]";
+
+  var homepageHTML = fs.readFileSync(HOMEPAGE_FILE, "utf8");
+
+  var startMarker = "var locations = [";
+  var endMarker = "    ];";
+  var startIdx = homepageHTML.indexOf(startMarker);
+  if (startIdx === -1) {
+    console.log("Warning: Could not find search locations in index.html.");
+    return;
+  }
+  var endIdx = homepageHTML.indexOf(endMarker, startIdx);
+  if (endIdx === -1) {
+    console.log("Warning: Could not find end of search locations in index.html.");
+    return;
+  }
+
+  homepageHTML = homepageHTML.substring(0, startIdx) + "var locations = " + locJS + homepageHTML.substring(endIdx + endMarker.length);
+
+  fs.writeFileSync(HOMEPAGE_FILE, homepageHTML);
+  console.log("Updated homepage search with " + locations.length + " cities.");
 }
 
 build();
