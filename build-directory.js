@@ -330,6 +330,7 @@ function affiliateSection() {
   return '      <div style="margin-top:48px;">\n' +
     '        <h2 class="section-title kls-drop">Roadside Emergency Essentials</h2>\n' +
     '        <div class="affiliate-card kls-fade">\n' +
+    '          <img src="/assets/images/gear/emergency-kit.jpg" alt="Emergency Roadside Kit" width="80" height="80" loading="lazy">\n' +
     '          <div class="aff-info">\n' +
     '            <h4>Emergency Roadside Kit</h4>\n' +
     '            <p>Jumper cables, flashlight, first aid, reflective triangles. Keep one in your trunk.</p>\n' +
@@ -337,11 +338,20 @@ function affiliateSection() {
     '          <a class="aff-link" href="https://www.amazon.com/s?k=emergency+roadside+kit&tag=' + AFFILIATE_TAG + '" target="_blank" rel="noopener nofollow">Shop on Amazon</a>\n' +
     '        </div>\n' +
     '        <div class="affiliate-card kls-fade">\n' +
+    '          <img src="/assets/images/gear/portable-jump-starters.jpg" alt="Portable Jump Starter" width="80" height="80" loading="lazy">\n' +
     '          <div class="aff-info">\n' +
     '            <h4>Portable Jump Starter</h4>\n' +
     '            <p>Compact battery pack that can jump start your car without another vehicle.</p>\n' +
     '          </div>\n' +
     '          <a class="aff-link" href="https://www.amazon.com/s?k=portable+jump+starter&tag=' + AFFILIATE_TAG + '" target="_blank" rel="noopener nofollow">Shop on Amazon</a>\n' +
+    '        </div>\n' +
+    '        <div class="affiliate-card kls-fade">\n' +
+    '          <img src="/assets/images/gear/portable-tire-inflator.jpg" alt="Portable Tire Inflator" width="80" height="80" loading="lazy">\n' +
+    '          <div class="aff-info">\n' +
+    '            <h4>Portable Tire Inflator</h4>\n' +
+    '            <p>Plug into your 12V outlet and inflate a low tire in minutes. No spare needed for slow leaks.</p>\n' +
+    '          </div>\n' +
+    '          <a class="aff-link" href="https://www.amazon.com/s?k=portable+tire+inflator+12v&tag=' + AFFILIATE_TAG + '" target="_blank" rel="noopener nofollow">Shop on Amazon</a>\n' +
     '        </div>\n' +
     '      </div>\n';
 }
