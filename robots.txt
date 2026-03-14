@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://towtruck.blog/sitemap.xml
+Sitemap: https://www.towtruck.blog/sitemap.xml
