@@ -836,6 +836,15 @@
       results.innerHTML=html;
       results.classList.add("active");
     });
+    input.addEventListener("keydown",function(e){
+      if(e.key==="Enter"){
+        var first=results.querySelector("a");
+        if(first){window.location.href=first.href;}
+        else if(this.value.trim()){
+          window.location.href="/states/?q="+encodeURIComponent(this.value.trim());
+        }
+      }
+    });
     document.addEventListener("click",function(e){
       if(!e.target.closest(".search-box")) results.classList.remove("active");
     });
