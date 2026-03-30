@@ -379,7 +379,7 @@ function generateStatePage(stateData) {
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>Tow Truck Companies in ' + escapeHTML(stateData.name) + ' | TowTruck.blog</title>\n' +
     '  <meta name="description" content="Find tow truck companies and roadside assistance in ' + escapeHTML(stateData.name) + '. Browse ' + totalBiz + ' towing services across ' + cityKeys.length + ' cities." />\n' +
-    '  <link rel="canonical" href="https://towtruck.blog/states/' + stateData.slug + '/" />\n' +
+    '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
     '  <link rel="stylesheet" href="/directory.css" />\n' +
     '  <script type="application/ld+json">\n' +
@@ -387,9 +387,9 @@ function generateStatePage(stateData) {
     '    "@context": "https://schema.org",\n' +
     '    "@type": "BreadcrumbList",\n' +
     '    "itemListElement": [\n' +
-    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://towtruck.blog/"},\n' +
-    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://towtruck.blog/states/"},\n' +
-    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/"}\n' +
+    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.towtruck.blog/"},\n' +
+    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://www.towtruck.blog/states/"},\n' +
+    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/"}\n' +
     '    ]\n' +
     '  }\n' +
     '  </script>\n' +
@@ -460,7 +460,7 @@ function generateCityPage(stateData, cityData) {
   var itemListItems = "";
   for (var j = 0; j < cityData.businesses.length; j++) {
     var biz = cityData.businesses[j];
-    itemListItems += '      {"@type": "ListItem", "position": ' + (j + 1) + ', "url": "https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/", "name": "' + escapeHTML(biz.name) + '"}';
+    itemListItems += '      {"@type": "ListItem", "position": ' + (j + 1) + ', "url": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/", "name": "' + escapeHTML(biz.name) + '"}';
     if (j < cityData.businesses.length - 1) itemListItems += ",";
     itemListItems += "\n";
   }
@@ -471,7 +471,7 @@ function generateCityPage(stateData, cityData) {
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>Tow Truck Companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + ' | TowTruck.blog</title>\n' +
     '  <meta name="description" content="Find ' + cityData.businesses.length + ' tow truck companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.name) + '. Compare ratings, check hours, and call directly." />\n' +
-    '  <link rel="canonical" href="https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/" />\n' +
+    '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
     '  <link rel="stylesheet" href="/directory.css" />\n' +
     '  <script type="application/ld+json">\n' +
@@ -479,10 +479,10 @@ function generateCityPage(stateData, cityData) {
     '    "@context": "https://schema.org",\n' +
     '    "@type": "BreadcrumbList",\n' +
     '    "itemListElement": [\n' +
-    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://towtruck.blog/"},\n' +
-    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://towtruck.blog/states/"},\n' +
-    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/"},\n' +
-    '      {"@type": "ListItem", "position": 4, "name": "' + escapeHTML(cityData.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/"}\n' +
+    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.towtruck.blog/"},\n' +
+    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://www.towtruck.blog/states/"},\n' +
+    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/"},\n' +
+    '      {"@type": "ListItem", "position": 4, "name": "' + escapeHTML(cityData.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/"}\n' +
     '    ]\n' +
     '  }\n' +
     '  </script>\n' +
@@ -581,7 +581,7 @@ function generateListingPage(stateData, cityData, biz) {
     '    },\n' +
     (biz.phoneTel ? '    "telephone": "+' + biz.phoneTel + '",\n' : '') +
     (biz.rating ? '    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "' + escapeHTML(biz.rating) + '", "bestRating": "5"' + (biz.reviewCount ? ', "reviewCount": "' + escapeHTML(biz.reviewCount) + '"' : '') + '},\n' : '') +
-    '    "url": "https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"\n' +
+    '    "url": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"\n' +
     '  }\n';
 
   var html = '<!DOCTYPE html>\n<html lang="en">\n<head>\n' +
@@ -590,7 +590,7 @@ function generateListingPage(stateData, cityData, biz) {
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
     '  <title>' + escapeHTML(biz.name) + ' - ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + ' | TowTruck.blog</title>\n' +
     '  <meta name="description" content="' + escapeHTML(biz.name) + ' provides towing and roadside assistance in ' + escapeHTML(biz.city) + ', ' + escapeHTML(stateData.name) + '.' + (biz.rating ? ' Rated ' + biz.rating + ' stars.' : '') + (biz.phoneFmt ? ' Call ' + biz.phoneFmt + '.' : '') + '" />\n' +
-    '  <link rel="canonical" href="https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/" />\n' +
+    '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
     '  <link rel="stylesheet" href="/directory.css" />\n' +
     '  <script type="application/ld+json">\n' +
@@ -598,11 +598,11 @@ function generateListingPage(stateData, cityData, biz) {
     '    "@context": "https://schema.org",\n' +
     '    "@type": "BreadcrumbList",\n' +
     '    "itemListElement": [\n' +
-    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://towtruck.blog/"},\n' +
-    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://towtruck.blog/states/"},\n' +
-    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/"},\n' +
-    '      {"@type": "ListItem", "position": 4, "name": "' + escapeHTML(cityData.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/"},\n' +
-    '      {"@type": "ListItem", "position": 5, "name": "' + escapeHTML(biz.name) + '", "item": "https://towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"}\n' +
+    '      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.towtruck.blog/"},\n' +
+    '      {"@type": "ListItem", "position": 2, "name": "States", "item": "https://www.towtruck.blog/states/"},\n' +
+    '      {"@type": "ListItem", "position": 3, "name": "' + escapeHTML(stateData.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/"},\n' +
+    '      {"@type": "ListItem", "position": 4, "name": "' + escapeHTML(cityData.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/"},\n' +
+    '      {"@type": "ListItem", "position": 5, "name": "' + escapeHTML(biz.name) + '", "item": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"}\n' +
     '    ]\n' +
     '  }\n' +
     '  </script>\n' +
@@ -642,34 +642,35 @@ function generateListingPage(stateData, cityData, biz) {
 
 function generateSitemap(states) {
   var urls = [];
-  urls.push({ loc: "https://towtruck.blog/", priority: "1.0", freq: "weekly" });
-  urls.push({ loc: "https://towtruck.blog/states/", priority: "0.9", freq: "weekly" });
-  urls.push({ loc: "https://towtruck.blog/about.html", priority: "0.6", freq: "monthly" });
-  urls.push({ loc: "https://towtruck.blog/contact.html", priority: "0.7", freq: "monthly" });
-  urls.push({ loc: "https://towtruck.blog/faq.html", priority: "0.6", freq: "monthly" });
-  urls.push({ loc: "https://towtruck.blog/privacy.html", priority: "0.3", freq: "yearly" });
-  urls.push({ loc: "https://towtruck.blog/terms.html", priority: "0.3", freq: "yearly" });
+  urls.push({ loc: "https://www.towtruck.blog/", priority: "1.0", freq: "weekly" });
+  urls.push({ loc: "https://www.towtruck.blog/states/", priority: "0.9", freq: "weekly" });
+  urls.push({ loc: "https://www.towtruck.blog/about.html", priority: "0.6", freq: "monthly" });
+  urls.push({ loc: "https://www.towtruck.blog/contact.html", priority: "0.7", freq: "monthly" });
+  urls.push({ loc: "https://www.towtruck.blog/faq.html", priority: "0.6", freq: "monthly" });
+  urls.push({ loc: "https://www.towtruck.blog/privacy.html", priority: "0.3", freq: "yearly" });
+  urls.push({ loc: "https://www.towtruck.blog/terms.html", priority: "0.3", freq: "yearly" });
 
   var stateKeys = Object.keys(states).sort();
   for (var s = 0; s < stateKeys.length; s++) {
     var state = states[stateKeys[s]];
-    urls.push({ loc: "https://towtruck.blog/states/" + state.slug + "/", priority: "0.8", freq: "weekly" });
+    urls.push({ loc: "https://www.towtruck.blog/states/" + state.slug + "/", priority: "0.8", freq: "weekly" });
 
     var cityKeys = Object.keys(state.cities).sort();
     for (var c = 0; c < cityKeys.length; c++) {
       var city = state.cities[cityKeys[c]];
-      urls.push({ loc: "https://towtruck.blog/states/" + state.slug + "/" + city.slug + "/", priority: "0.8", freq: "weekly" });
+      urls.push({ loc: "https://www.towtruck.blog/states/" + state.slug + "/" + city.slug + "/", priority: "0.8", freq: "weekly" });
 
       for (var b = 0; b < city.businesses.length; b++) {
         var biz = city.businesses[b];
-        urls.push({ loc: "https://towtruck.blog/states/" + state.slug + "/" + city.slug + "/" + biz.slug + "/", priority: "0.7", freq: "monthly" });
+        urls.push({ loc: "https://www.towtruck.blog/states/" + state.slug + "/" + city.slug + "/" + biz.slug + "/", priority: "0.7", freq: "monthly" });
       }
     }
   }
 
+  var today = new Date().toISOString().slice(0, 10);
   var xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   for (var i = 0; i < urls.length; i++) {
-    xml += '  <url><loc>' + urls[i].loc + '</loc><changefreq>' + urls[i].freq + '</changefreq><priority>' + urls[i].priority + '</priority></url>\n';
+    xml += '  <url><loc>' + urls[i].loc + '</loc><lastmod>' + today + '</lastmod><changefreq>' + urls[i].freq + '</changefreq><priority>' + urls[i].priority + '</priority></url>\n';
   }
   xml += '</urlset>\n';
   return xml;
