@@ -580,7 +580,7 @@ function generateListingPage(stateData, cityData, biz) {
     '      "addressCountry": "US"\n' +
     '    },\n' +
     (biz.phoneTel ? '    "telephone": "+' + biz.phoneTel + '",\n' : '') +
-    (biz.rating ? '    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "' + escapeHTML(biz.rating) + '", "bestRating": "5"' + (biz.reviewCount ? ', "reviewCount": "' + escapeHTML(biz.reviewCount) + '"' : '') + '},\n' : '') +
+    (biz.rating && biz.reviewCount ? '    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "' + escapeHTML(biz.rating) + '", "reviewCount": "' + escapeHTML(biz.reviewCount) + '", "bestRating": "5"},\n' : '') +
     '    "url": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"\n' +
     '  }\n';
 
