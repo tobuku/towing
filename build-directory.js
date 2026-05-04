@@ -777,7 +777,7 @@ function updateHomepageSearch(states) {
   var homepageHTML = fs.readFileSync(HOMEPAGE_FILE, "utf8");
 
   var startMarker = "var locations = [";
-  var endMarker = "    ];";
+  var endMarker = "    ]";
   var startIdx = homepageHTML.indexOf(startMarker);
   if (startIdx === -1) {
     console.log("Warning: Could not find search locations in index.html.");
