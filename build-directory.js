@@ -120,8 +120,9 @@ function getStarHTML(rating) {
   var full = Math.floor(r);
   var half = (r - full) >= 0.3;
   var html = "";
-  for (var i = 0; i < full; i++) html += "&#9733;";
-  if (half) html += "&#9733;";
+  var starSvg = '<svg class="star-svg" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>';
+  for (var i = 0; i < full; i++) html += starSvg;
+  if (half) html += starSvg;
   return html;
 }
 

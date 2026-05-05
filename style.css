@@ -70,7 +70,7 @@ section{padding:10px 0}
 .card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.1);transform:translateY(-3px)}
 .card h3{font-size:1.3rem;margin-bottom:10px;color:var(--ink)}
 .card p{color:var(--muted);line-height:1.75}
-.card .icon{font-size:2rem;margin-bottom:12px;display:block}
+.card .icon{width:32px;height:32px;margin-bottom:12px;display:block;color:var(--ink)}
 
 /* === Media / images === */
 .media{border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 10px 28px var(--shadow);background:#fff}
@@ -129,6 +129,9 @@ footer a:hover{color:var(--accent)}
 .cta-banner p{color:#ccc;margin-bottom:24px;font-size:1.05rem}
 .cta-banner .btn{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700}
 .cta-banner .btn:hover{background:var(--accent-2)}
+
+/* === Star SVG === */
+.star-svg{display:inline-block;vertical-align:middle;margin:-2px 1px 0}
 
 /* === Split text chars === */
 .kls-split{display:inline-block}
