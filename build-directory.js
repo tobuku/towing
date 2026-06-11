@@ -378,8 +378,8 @@ function generateStatePage(stateData) {
     ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
-    '  <title>Tow Truck Companies in ' + escapeHTML(stateData.name) + ' | TowTruck.blog</title>\n' +
-    '  <meta name="description" content="Find tow truck companies and roadside assistance in ' + escapeHTML(stateData.name) + '. Browse ' + totalBiz + ' towing services across ' + cityKeys.length + ' cities." />\n' +
+    '  <title>Tow Truck Companies in ' + escapeHTML(stateData.name) + ' (' + totalBiz + ' Listed)</title>\n' +
+    '  <meta name="description" content="Browse ' + totalBiz + ' tow truck companies across ' + cityKeys.length + ' cities in ' + escapeHTML(stateData.name) + '. Compare ratings, check hours, and call directly for roadside assistance." />\n' +
     '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/" />\n' +
     '  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
@@ -471,8 +471,8 @@ function generateCityPage(stateData, cityData) {
     ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
-    '  <title>Tow Truck Companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + ' | TowTruck.blog</title>\n' +
-    '  <meta name="description" content="Find ' + cityData.businesses.length + ' tow truck companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.name) + '. Compare ratings, check hours, and call directly." />\n' +
+    '  <title>' + cityData.businesses.length + ' Tow Truck Companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + '</title>\n' +
+    '  <meta name="description" content="Compare ' + cityData.businesses.length + ' tow truck companies in ' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.name) + '. Ratings, hours, and phone numbers. Find 24-hour towing near you." />\n' +
     '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/" />\n' +
     '  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
@@ -591,8 +591,8 @@ function generateListingPage(stateData, cityData, biz) {
     ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
-    '  <title>' + escapeHTML(biz.name) + ' - ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + ' | TowTruck.blog</title>\n' +
-    '  <meta name="description" content="' + escapeHTML(biz.name) + ' provides towing and roadside assistance in ' + escapeHTML(biz.city) + ', ' + escapeHTML(stateData.name) + '.' + (biz.rating ? ' Rated ' + biz.rating + ' stars.' : '') + (biz.phoneFmt ? ' Call ' + biz.phoneFmt + '.' : '') + '" />\n' +
+    '  <title>' + escapeHTML(biz.name) + ', ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + (biz.rating ? ' (' + biz.rating + ' Stars)' : '') + '</title>\n' +
+    '  <meta name="description" content="' + escapeHTML(biz.name) + ' in ' + escapeHTML(biz.city) + ', ' + escapeHTML(stateData.name) + '.' + (biz.rating ? ' ' + biz.rating + ' stars.' : '') + ' Towing and roadside assistance.' + (biz.phoneFmt ? ' Call ' + biz.phoneFmt + '.' : '') + '" />\n' +
     '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/" />\n' +
     '  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
