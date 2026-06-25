@@ -257,6 +257,7 @@ function headerHTML(cssPrefix) {
     '      <nav class="nav-links">\n' +
     '        <a class="kls-magnet" href="/">Home</a>\n' +
     '        <a class="kls-magnet" href="/states/">Browse States</a>\n' +
+    '        <a class="kls-magnet" href="/pricing.html">Pricing</a>\n' +
     '        <a class="kls-magnet" href="/contact.html">List Your Business</a>\n' +
     '        <a class="kls-magnet" href="/about.html">About</a>\n' +
     '        <a class="kls-magnet" href="/faq.html">FAQ</a>\n' +
@@ -510,28 +511,6 @@ function generateCityPage(stateData, cityData) {
     '      <div class="listings-grid">\n' +
     listingsHTML +
     '      </div>\n\n' +
-    '      <!-- Request a Quote -->\n' +
-    '      <div class="quote-form kls-fade" style="margin-top:48px;">\n' +
-    '        <h3>Request a Towing Quote in ' + escapeHTML(cityData.name) + '</h3>\n' +
-    '        <form action="https://formspree.io/f/xpqjneyj" method="POST">\n' +
-    '          <input type="hidden" name="city" value="' + escapeHTML(cityData.name) + ', ' + escapeHTML(stateData.abbr) + '" />\n' +
-    '          <label for="q-name">Your Name</label>\n' +
-    '          <input type="text" id="q-name" name="name" required placeholder="Full name" />\n' +
-    '          <label for="q-phone">Phone Number</label>\n' +
-    '          <input type="tel" id="q-phone" name="phone" required placeholder="(555) 555-1234" />\n' +
-    '          <label for="q-service">Service Needed</label>\n' +
-    '          <select id="q-service" name="service">\n' +
-    '            <option value="towing">Towing</option>\n' +
-    '            <option value="roadside">Roadside Assistance</option>\n' +
-    '            <option value="accident">Accident Recovery</option>\n' +
-    '            <option value="junk">Junk Car Removal</option>\n' +
-    '            <option value="other">Other</option>\n' +
-    '          </select>\n' +
-    '          <label for="q-details">Details</label>\n' +
-    '          <textarea id="q-details" name="details" placeholder="Vehicle type, location, issue..."></textarea>\n' +
-    '          <button type="submit" class="btn primary kls-magnet">Request Quote</button>\n' +
-    '        </form>\n' +
-    '      </div>\n\n' +
     affiliateSection() +
     '    </div>\n' +
     ctaBanner("Own a Towing Business in " + cityData.name + "?", "Get listed on TowTruck.blog for free.", "List Your Business", "/contact.html") +
@@ -650,6 +629,7 @@ function generateSitemap(states) {
   urls.push({ loc: "https://www.towtruck.blog/states/", priority: "0.9", freq: "weekly" });
   urls.push({ loc: "https://www.towtruck.blog/about.html", priority: "0.6", freq: "monthly" });
   urls.push({ loc: "https://www.towtruck.blog/contact.html", priority: "0.7", freq: "monthly" });
+  urls.push({ loc: "https://www.towtruck.blog/pricing.html", priority: "0.8", freq: "monthly" });
   urls.push({ loc: "https://www.towtruck.blog/faq.html", priority: "0.6", freq: "monthly" });
   urls.push({ loc: "https://www.towtruck.blog/privacy.html", priority: "0.3", freq: "yearly" });
   urls.push({ loc: "https://www.towtruck.blog/terms.html", priority: "0.3", freq: "yearly" });

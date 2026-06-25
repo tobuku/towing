@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0G9EYS155G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0G9EYS155G');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing — Get More Calls With a Featured Listing | TowTruck.blog</title>
+  <meta name="description" content="Choose a listing plan for your towing company. Free listings forever, or upgrade to Featured for priority placement, enhanced profile, and more calls." />
+  <link rel="canonical" href="https://www.towtruck.blog/pricing.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="directory.css" />
+  <style>
+    /* Pricing page styles */
+    .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:40px;align-items:start}
+    .pricing-card{padding:36px 28px;border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:0 6px 24px var(--shadow);text-align:center;position:relative;transition:box-shadow .25s,transform .25s}
+    .pricing-card:hover{box-shadow:0 12px 36px rgba(0,0,0,0.1);transform:translateY(-4px)}
+    .pricing-card.popular{border:2px solid var(--accent);box-shadow:0 8px 32px rgba(246,198,0,0.18)}
+    .pricing-card.best-value{border:2px solid var(--ink)}
+    .pricing-badge{display:inline-block;padding:5px 16px;border-radius:20px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+    .pricing-badge.featured{background:var(--accent);color:var(--ink)}
+    .pricing-badge.best-value{background:var(--ink);color:#fff}
+    .pricing-card h3{font-size:1.4rem;margin-bottom:8px;color:var(--ink)}
+    .pricing-price{font-size:2.8rem;font-weight:800;color:var(--ink);line-height:1.1;margin-bottom:4px}
+    .pricing-price .currency{font-size:1.4rem;vertical-align:super;font-weight:700}
+    .pricing-price .period{font-size:1rem;font-weight:400;color:var(--muted)}
+    .pricing-savings{display:inline-block;padding:4px 12px;background:#e8f5e9;color:#2e7d32;font-size:.85rem;font-weight:600;border-radius:6px;margin:8px 0 4px}
+    .pricing-desc{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+    .pricing-features{list-style:none;text-align:left;margin-bottom:28px}
+    .pricing-features li{padding:9px 0;border-bottom:1px solid #f0f0f0;color:var(--text);font-size:.95rem;display:flex;align-items:flex-start;gap:10px}
+    .pricing-features li:last-child{border-bottom:none}
+    .pricing-features .check{color:#2e7d32;font-weight:700;font-size:1.1rem;flex-shrink:0;line-height:1.4}
+    .pricing-card .btn{width:100%;padding:16px;font-size:1.05rem}
+    .pricing-card .btn.accent{background:var(--accent);color:var(--ink);border-color:var(--accent);font-weight:700}
+    .pricing-card .btn.accent:hover{background:var(--accent-2);box-shadow:0 0 30px rgba(246,198,0,0.35)}
+
+    /* Founding member banner */
+    .founder-banner{max-width:800px;margin:48px auto 0;padding:32px;background:linear-gradient(135deg,#111 0%,#1a1a1a 100%);border-radius:14px;text-align:center;color:#fff;position:relative;overflow:hidden}
+    .founder-banner::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(246,198,0,0.08),transparent 50%);pointer-events:none}
+    .founder-banner h3{font-size:1.5rem;margin-bottom:10px;color:var(--accent);position:relative}
+    .founder-banner p{color:#ccc;font-size:.95rem;line-height:1.7;max-width:600px;margin:0 auto 20px;position:relative}
+    .founder-counter{display:inline-block;padding:10px 28px;background:rgba(246,198,0,0.12);border:1px solid rgba(246,198,0,0.3);border-radius:8px;font-size:1.1rem;font-weight:700;color:var(--accent);position:relative}
+    .founder-counter .count-num{font-size:1.4rem}
+
+    /* Benefits section */
+    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:36px}
+    .benefit-item{padding:24px;background:#fafafa;border:1px solid var(--border);border-radius:10px;text-align:center}
+    .benefit-item .benefit-icon{font-size:1.6rem;margin-bottom:10px;display:block}
+    .benefit-item h4{font-size:1.05rem;margin-bottom:6px;color:var(--ink)}
+    .benefit-item p{font-size:.9rem;color:var(--muted);line-height:1.6}
+
+    /* Comparison table */
+    .compare-table{width:100%;border-collapse:collapse;margin-top:36px;font-size:.95rem}
+    .compare-table th,.compare-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border)}
+    .compare-table th{background:#fafafa;font-weight:600;color:var(--ink);font-size:.85rem;text-transform:uppercase;letter-spacing:.03em}
+    .compare-table td:not(:first-child){text-align:center;font-weight:500}
+    .compare-table .check-mark{color:#2e7d32;font-weight:700;font-size:1.1rem}
+    .compare-table .dash{color:#ccc}
+    .compare-table tr:hover td{background:#fafafa}
+
+    /* FAQ section on pricing */
+    .pricing-faq{max-width:700px;margin:0 auto}
+
+    @media(max-width:768px){
+      .pricing-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}
+      .pricing-price{font-size:2.2rem}
+      .benefits-grid{grid-template-columns:1fr}
+      .compare-table{font-size:.85rem}
+      .compare-table th,.compare-table td{padding:10px 8px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo"><a href="/" style="text-decoration:none;color:inherit">TowTruck<span>.blog</span></a></div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="nav-links">
+        <a class="kls-magnet" href="/">Home</a>
+        <a class="kls-magnet" href="/states/">Browse States</a>
+        <a class="kls-magnet" href="/pricing.html">Pricing</a>
+        <a class="kls-magnet" href="/contact.html">List Your Business</a>
+        <a class="kls-magnet" href="/about.html">About</a>
+        <a class="kls-magnet" href="/faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="kls-drop" style="text-align:center;margin-bottom:10px;">Get More Calls With a Featured Listing</h1>
+      <p class="section-sub">Stand out from competitors, appear above free listings, and get more phone calls and website visits from drivers in your city.</p>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid">
+
+        <!-- Free Tier -->
+        <div class="pricing-card kls-fade">
+          <h3>Free Listing</h3>
+          <div class="pricing-price"><span class="currency">$</span>0 <span class="period">forever</span></div>
+          <p class="pricing-desc">Basic directory listing with no expiration.</p>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Business name</li>
+            <li><span class="check">&#10003;</span> Phone number with click-to-call</li>
+            <li><span class="check">&#10003;</span> Website link</li>
+            <li><span class="check">&#10003;</span> Address</li>
+            <li><span class="check">&#10003;</span> Basic business description</li>
+            <li><span class="check">&#10003;</span> Appear in search results</li>
+            <li><span class="check">&#10003;</span> Appear on city and state pages</li>
+            <li><span class="check">&#10003;</span> No expiration date</li>
+          </ul>
+          <a class="btn secondary kls-magnet" href="/contact.html">Get Listed Free</a>
+        </div>
+
+        <!-- Featured Monthly -->
+        <div class="pricing-card popular kls-fade">
+          <span class="pricing-badge featured">Featured</span>
+          <h3>Featured Listing</h3>
+          <div class="pricing-price"><span class="currency">$</span>29 <span class="period">/month</span></div>
+          <p class="pricing-desc">Priority placement and enhanced visibility.</p>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Everything in Free</li>
+            <li><span class="check">&#10003;</span> Featured badge on listing</li>
+            <li><span class="check">&#10003;</span> Display above all free listings</li>
+            <li><span class="check">&#10003;</span> Priority placement in search</li>
+            <li><span class="check">&#10003;</span> Additional photos and details</li>
+            <li><span class="check">&#10003;</span> Social media links</li>
+            <li><span class="check">&#10003;</span> Lead/contact form on listing</li>
+            <li><span class="check">&#10003;</span> Increased directory visibility</li>
+            <li><span class="check">&#10003;</span> Monthly billing, cancel anytime</li>
+          </ul>
+          <a class="btn accent kls-magnet" href="https://buy.stripe.com/3cI7sKeSEbbR3TG3VN04801">Choose Monthly</a>
+        </div>
+
+        <!-- Annual Featured -->
+        <div class="pricing-card best-value kls-fade">
+          <span class="pricing-badge best-value">Best Value</span>
+          <h3>Annual Featured</h3>
+          <div class="pricing-price"><span class="currency">$</span>199 <span class="period">/year</span></div>
+          <span class="pricing-savings">Save $149 per year</span>
+          <p class="pricing-desc">All Featured benefits at the best price.</p>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Everything in Featured</li>
+            <li><span class="check">&#10003;</span> Featured badge on listing</li>
+            <li><span class="check">&#10003;</span> Display above all free listings</li>
+            <li><span class="check">&#10003;</span> Priority placement in search</li>
+            <li><span class="check">&#10003;</span> Additional photos and details</li>
+            <li><span class="check">&#10003;</span> Social media links</li>
+            <li><span class="check">&#10003;</span> Lead/contact form on listing</li>
+            <li><span class="check">&#10003;</span> Increased directory visibility</li>
+            <li><span class="check">&#10003;</span> Annual billing with auto-renewal</li>
+          </ul>
+          <a class="btn primary kls-magnet" href="https://buy.stripe.com/5kQ9AS5i4bbReyk4ZR04802">Choose Annual</a>
+        </div>
+
+      </div>
+
+      <!-- Founding Member Banner -->
+      <div class="founder-banner kls-fade">
+        <h3>Founding Member Pricing</h3>
+        <p>The first 50 Featured advertisers receive permanent grandfathered pricing. Your rate stays locked for life as long as your subscription remains active. If you cancel, grandfathered pricing is permanently lost.</p>
+        <div class="founder-counter">
+          <span class="count-num" id="founder-remaining">50</span> of 50 Founding Member Spots Remaining
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div style="margin-top:64px;">
+        <h2 class="section-title kls-drop">Why Upgrade to Featured?</h2>
+        <p class="section-sub">Featured listings get significantly more visibility, calls, and website visits compared to free listings.</p>
+        <div class="benefits-grid">
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F4CD;</span>
+            <h4>Appear Above Free Listings</h4>
+            <p>Your business shows first on city pages and in search results, before all free listings.</p>
+          </div>
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F4DE;</span>
+            <h4>Get More Phone Calls</h4>
+            <p>Priority placement means more drivers see your listing and tap to call your business directly.</p>
+          </div>
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F310;</span>
+            <h4>Increase Website Visits</h4>
+            <p>Enhanced profile with direct website link drives more traffic to your site.</p>
+          </div>
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F3C6;</span>
+            <h4>Stand Out From Competitors</h4>
+            <p>The Featured badge and highlighted border make your listing impossible to miss.</p>
+          </div>
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F512;</span>
+            <h4>Lock In Founding Member Pricing</h4>
+            <p>Be one of the first 50 and keep your rate forever while your subscription is active.</p>
+          </div>
+          <div class="benefit-item kls-fade">
+            <span class="benefit-icon">&#x1F4C8;</span>
+            <h4>Lead Generation Tools</h4>
+            <p>Your Featured listing includes a contact form so potential customers can reach you directly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div style="margin-top:64px;">
+        <h2 class="section-title kls-drop">Compare Plans</h2>
+        <div style="overflow-x:auto;">
+          <table class="compare-table kls-fade">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Free</th>
+                <th>Featured</th>
+                <th>Annual Featured</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Business name and address</td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Phone number (click-to-call)</td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Website link</td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Basic description</td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Search results and city pages</td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Featured badge</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Priority placement above free listings</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Additional photos</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Social media links</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Lead/contact form</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Increased visibility</td>
+                <td><span class="dash">&mdash;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+                <td><span class="check-mark">&#10003;</span></td>
+              </tr>
+              <tr>
+                <td>Price</td>
+                <td><strong>$0</strong></td>
+                <td><strong>$29/mo</strong></td>
+                <td><strong>$199/yr</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pricing FAQ -->
+      <div style="margin-top:64px;">
+        <h2 class="section-title kls-drop">Frequently Asked Questions</h2>
+        <div class="pricing-faq">
+          <div class="faq-item kls-fade">
+            <h3>What is Founding Member pricing?</h3>
+            <p>The first 50 businesses to subscribe to a Featured plan get their rate locked in permanently. Your monthly rate stays $29/month (or $199/year) for life, even if prices increase later. This pricing is protected as long as your subscription remains active.</p>
+          </div>
+          <div class="faq-item kls-fade">
+            <h3>What happens if I cancel my Founding Member subscription?</h3>
+            <p>If you cancel, your grandfathered Founding Member pricing is permanently lost. If you resubscribe later, you will pay the current rate at that time.</p>
+          </div>
+          <div class="faq-item kls-fade">
+            <h3>Can I switch between monthly and annual billing?</h3>
+            <p>Yes. You can upgrade from monthly to annual at any time to save $149 per year. Contact us to make the switch and we will adjust your billing.</p>
+          </div>
+          <div class="faq-item kls-fade">
+            <h3>How does the Featured badge work?</h3>
+            <p>Featured listings display a yellow "Featured" badge and are shown above all free listings on your city page and in search results. Your listing card also gets a highlighted border to stand out visually.</p>
+          </div>
+          <div class="faq-item kls-fade">
+            <h3>Is the free listing really free forever?</h3>
+            <p>Yes. Free listings include your business name, phone, website, address, and description with no expiration date and no hidden fees. You can upgrade to Featured at any time.</p>
+          </div>
+          <div class="faq-item kls-fade">
+            <h3>How do I manage my subscription?</h3>
+            <p>After subscribing, you will receive an email with a link to manage your billing, update payment information, change plans, or cancel. You can also contact us at <a href="mailto:info@knowleapstrategies.com">info@knowleapstrategies.com</a> for help.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <section class="cta-banner">
+      <h2 class="kls-drop">Ready to Get More Calls?</h2>
+      <p>Join the directory and start reaching drivers searching for towing in your city today.</p>
+      <a class="btn kls-magnet" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">View Plans</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>TowTruck.blog</h4>
+        <p style="font-size:.9rem;color:#999;">Nationwide tow truck directory. Find towing companies and roadside assistance near you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Directory</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/states/">Browse States</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">List Your Business</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Popular Cities</h4>
+        <ul>
+          <li><a href="/states/hawaii/honolulu/">Honolulu, HI</a></li>
+          <li><a href="/states/texas/houston/">Houston, TX</a></li>
+          <li><a href="/states/california/los-angeles/">Los Angeles, CA</a></li>
+          <li><a href="/states/florida/miami/">Miami, FL</a></li>
+          <li><a href="/states/new-york/new-york/">New York, NY</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">&copy; <span id="year"></span> TowTruck.blog. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="/gsap-init.js"></script>
+  <script>
+    // ── Founding Member Counter ──
+    // Update this number manually as spots are claimed.
+    // Total spots: 50. Set SPOTS_CLAIMED to the number sold.
+    var SPOTS_CLAIMED = 0;
+    var remaining = 50 - SPOTS_CLAIMED;
+    var el = document.getElementById('founder-remaining');
+    if (el) el.textContent = remaining;
+    // Update the full counter text
+    if (el && el.parentNode) {
+      el.parentNode.innerHTML = '<span class="count-num">' + remaining + '</span> of 50 Founding Member Spots Remaining';
+    }
+  </script>
+</body>
+</html>
