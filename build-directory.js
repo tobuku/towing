@@ -178,8 +178,8 @@ function loadBusinesses() {
     var is24 = hours.some(function(h) { return h && h.indexOf("24") > -1; });
     var hoursDisplay = is24 ? "Open 24 Hours" : (hours[0] || "Contact for hours");
 
-    // Featured if it's Tadio's
-    var featured = name.toLowerCase().indexOf("tadio") > -1;
+    // Featured listings
+    var featured = name.toLowerCase().indexOf("tadio") > -1 || name.toLowerCase().indexOf("henry") > -1;
 
     businesses.push({
       name: name,
