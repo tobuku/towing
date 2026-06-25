@@ -427,7 +427,7 @@ function generateCityPage(stateData, cityData) {
     var featuredBadge = b.featured ? '          <span class="badge-featured">Featured</span>\n' : "";
 
     var ratingHTML = "";
-    if (b.rating) {
+    if (b.rating && b.featured) {
       ratingHTML = '            <span class="listing-rating"><span class="stars">' + getStarHTML(b.rating) + '</span> ' + escapeHTML(b.rating) + '</span>\n';
       if (b.reviewCount) {
         ratingHTML += '            <span class="listing-reviews">' + escapeHTML(b.reviewCount) + ' reviews</span>\n';
@@ -539,8 +539,8 @@ function generateListingPage(stateData, cityData, biz) {
   contactCardHTML += '        </div>\n';
 
   var ratingMeta = "";
-  if (biz.rating) {
-    ratingMeta += '          <span class="listing-rating"><span class="stars">' + getStarHTML(biz.rating) + '</span> ' + escapeHTML(biz.rating) + '</span>\n';
+  if (biz.rating && biz.featured) {
+    ratingMeta += '          <span class="listing-rating"><span class="stars">' + getStarHTML(biz.rating) + '</span> ' + escapeHTML(biz.rating) + ' <span style="font-size:.8rem;font-weight:400;color:var(--muted);">Verified Google Rating</span></span>\n';
     if (biz.reviewCount) ratingMeta += '          <span class="listing-reviews">' + escapeHTML(biz.reviewCount) + ' reviews</span>\n';
   }
 
@@ -562,7 +562,7 @@ function generateListingPage(stateData, cityData, biz) {
     '      "addressCountry": "US"\n' +
     '    },\n' +
     (biz.phoneTel ? '    "telephone": "+' + biz.phoneTel + '",\n' : '') +
-    (biz.rating && biz.reviewCount ? '    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "' + escapeHTML(biz.rating) + '", "reviewCount": "' + escapeHTML(biz.reviewCount) + '", "bestRating": "5"},\n' : '') +
+    (biz.rating && biz.reviewCount && biz.featured ? '    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "' + escapeHTML(biz.rating) + '", "reviewCount": "' + escapeHTML(biz.reviewCount) + '", "bestRating": "5"},\n' : '') +
     '    "url": "https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/"\n' +
     '  }\n';
 
@@ -570,8 +570,8 @@ function generateListingPage(stateData, cityData, biz) {
     ga4Snippet() +
     '  <meta charset="UTF-8" />\n' +
     '  <meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
-    '  <title>' + escapeHTML(biz.name) + ', ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + (biz.rating ? ' (' + biz.rating + ' Stars)' : '') + '</title>\n' +
-    '  <meta name="description" content="' + escapeHTML(biz.name) + ' in ' + escapeHTML(biz.city) + ', ' + escapeHTML(stateData.name) + '.' + (biz.rating ? ' ' + biz.rating + ' stars.' : '') + ' Towing and roadside assistance.' + (biz.phoneFmt ? ' Call ' + biz.phoneFmt + '.' : '') + '" />\n' +
+    '  <title>' + escapeHTML(biz.name) + ', ' + escapeHTML(biz.city) + ', ' + escapeHTML(biz.state) + (biz.rating && biz.featured ? ' (' + biz.rating + ' Stars)' : '') + '</title>\n' +
+    '  <meta name="description" content="' + escapeHTML(biz.name) + ' in ' + escapeHTML(biz.city) + ', ' + escapeHTML(stateData.name) + '.' + (biz.rating && biz.featured ? ' ' + biz.rating + ' stars.' : '') + ' Towing and roadside assistance.' + (biz.phoneFmt ? ' Call ' + biz.phoneFmt + '.' : '') + '" />\n' +
     '  <link rel="canonical" href="https://www.towtruck.blog/states/' + stateData.slug + '/' + cityData.slug + '/' + biz.slug + '/" />\n' +
     '  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />\n' +
     '  <link rel="stylesheet" href="/style.css" />\n' +
